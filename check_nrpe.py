@@ -45,5 +45,7 @@ class NRPEClient(asyncore.dispatcher):
 
 
 client = NRPEClient('localhost', 'foobar')
-asyncore.loop()
+#asyncore.loop()
+while client.pktype != 2:
+  asyncore.poll2(1)
 print client.message
